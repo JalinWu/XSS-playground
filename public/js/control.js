@@ -1,19 +1,15 @@
 $(document).ready(() => {
-    // $('body').append('<script>alert(1)</script>');
-    console.log('hello');
-    
 
     $.ajax({
         type: 'GET',
-        url: '/getData',
+        url: '/db/getMsg',
         error: function (xhr) {
             console.log('Oops, something went wrong.');
         },
         success: function (res) {
-            console.log(res);
+            console.log(res[0].msg);
 
-            // $('body').append(res.msg[0].msg);
-            $('body').append('789');
+            $('body').append(res[0].msg);
 
         }
     });
@@ -25,14 +21,14 @@ $('#click-me').click(() => {
 
     $.ajax({
         type: 'GET',
-        url: '/getData',
+        url: '/db/getMsg',
         error: function (xhr) {
             console.log('Oops, something went wrong.');
         },
         success: function (res) {
-            console.log(res);
+            console.log(res[0].msg);
 
-            $('body').append(res.msg[0].msg);
+            $('body').append(res[0].msg);
 
         }
     });

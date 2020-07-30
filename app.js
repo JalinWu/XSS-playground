@@ -16,7 +16,7 @@ app.use(express.static(__dirname + '/public'));
 
 // Routes
 app.use('/', require('./routes/index.js'));
-// app.use('/db', require('./routes/db.js'));
+app.use('/db', require('./routes/db.js'));
  
 var PORT = 3000;
 app.listen(PORT, function () {
