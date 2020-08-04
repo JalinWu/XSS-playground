@@ -16,6 +16,13 @@ router.get('/reset', (req, res) => {
         // 清空 message 資料表
         db.run("DELETE from message");
 
+        // 塞入 default data
+        var sqlInsertDefault = db.prepare("INSERT INTO message VALUES (?, ?, ?)");
+        sqlInsertDefault.run("Hank", "It's a wonderful website!", new Date());
+        sqlInsertDefault.run("Winnie", "I like the color in this website, it's really beautiful.", new Date());
+
+        sqlInsertDefault.finalize();
+
         var query = "SELECT * FROM message;";
         console.log(query);
 
@@ -49,7 +56,7 @@ router.post('/setMsg', (req, res) => {
 router.get('/getMsg', (req, res) => {
     var messageTable = new Array();
 
-    var query = "SELECT * FROM message;"
+    var query = "SELECT * FROM message order by created_at desc;"
     db.serialize(() => {
         console.log(query);
         db.all(query, (err, rows) => {
@@ -57,7 +64,7 @@ router.get('/getMsg', (req, res) => {
             rows.forEach((item) => {
                 var date = new Date(item.created_at);
                 date.setHours(date.getHours()+8);
-                item.created_at = date;
+                item.created_at = date.toUTCString();
                 messageTable.push(item);
             })
 

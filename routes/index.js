@@ -19,27 +19,17 @@ router.get('/gameStart', (req, res) => {
     // ?txt=<script>alert(1)</script>
     // ?txt=alert(1)
     var msgTable = new Array();
-    var query = "SELECT * FROM message;"
+    // var query = "SELECT * FROM message order by created_at desc;"
 
     db.serialize(() => {
-        console.log(query);
-        db.all(query, (err, rows) => {
-            if(rows){
-                msgTable = rows;
-            } else {
-                msgTable = [];
-            }
-            console.log(msgTable);
-            
-            res.render('gameStart', {
-                msgTable,
-                gameRuleActive: "",
-                gameStartActive: "active",
-                solutionsActive: ""
-            })
+        // console.log(query);
+        res.render('gameStart', {
+            gameRuleActive: "",
+            gameStartActive: "active",
+            solutionsActive: ""
         })
     })
-    
+
 })
 
 // solutions
@@ -47,7 +37,9 @@ router.get('/solutions', (req, res) => {
     res.render('solutions', {
         gameRuleActive: "",
         gameStartActive: "",
-        solutionsActive: "active"
+        solutionsActive: "active",
+        solution1: "<script>alert(1)</script>",
+        solution2: "<script>alert(2)</script>"
     });
 })
 

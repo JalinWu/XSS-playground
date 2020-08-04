@@ -12,6 +12,12 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
  */
+.msg-board {
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 0 20px;
+  margin: 10px 0;
+}
 
 .micro-jhen-hei, .micro-jhen-hei>h4 {
   font-family: 'Microsoft JhengHei';
