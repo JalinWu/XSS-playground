@@ -6,7 +6,7 @@ It's a teaching material
 
 ## Screenshots
 
-![image](https://raw.githubusercontent.com/JalinWu/XSS-playground/master/public/img/demo.png)
+![image](https://raw.githubusercontent.com/JalinWu/XSS-playground/master/public/img/demo2.png)
 
 ## Usage
 
