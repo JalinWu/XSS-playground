@@ -38,8 +38,8 @@ router.get('/solutions', (req, res) => {
         gameRuleActive: "",
         gameStartActive: "",
         solutionsActive: "active",
-        solution1: "<script>alert(1)</script>",
-        solution2: "<script>alert(2)</script>"
+        solution1: "<script>alert(\"恭喜抽中iphone! 請點擊以下連結領取:(惡意連結)\")</script>",
+        solution2: "<script>var phone = prompt(\"恭喜抽中iphone! 請輸入手機號碼等待通知:\"); console.log(phone);</script>"
     });
 })
 
