@@ -31,11 +31,9 @@ $(document).ready(() => {
 })
 
 function sendMsg(name, msg) {
+    // 請先判斷使用者是否輸入特殊字元
 
-    var pattern = /[<>]/g;
-    var result = pattern.test(msg);
-    console.log("result: " + result);
-    
+
 
     $.ajax({
         type: 'POST',
@@ -92,3 +90,11 @@ $('#reset-btn').click(() => {
         }
     });
 })
+
+// var pattern = /[<>]/g;
+// var result = pattern.test(msg);
+// console.log("result: " + result);
+// if (result) {
+//     alert("請勿輸入特殊字元");
+//     return;
+// }
